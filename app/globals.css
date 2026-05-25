@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wave {
+  width: 6px;
+  border-radius: 999px;
+  background: #00d9ff;
+  animation: wave 1s infinite ease-in-out;
+  box-shadow: 0 0 10px #00d9ff;
+}
+
+.wave1 {
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.wave2 {
+  height: 35px;
+  animation-delay: 0.1s;
+}
+
+.wave3 {
+  height: 50px;
+  animation-delay: 0.2s;
+}
+
+.wave4 {
+  height: 65px;
+  animation-delay: 0.3s;
+}
+
+.wave5 {
+  height: 50px;
+  animation-delay: 0.4s;
+}
+
+.wave6 {
+  height: 35px;
+  animation-delay: 0.5s;
+}
+
+.wave7 {
+  height: 25px;
+  animation-delay: 0.6s;
+}
+
+.wave8 {
+  height: 15px;
+  animation-delay: 0.7s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scaleY(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scaleY(1.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 0.5;
+  }
+}
