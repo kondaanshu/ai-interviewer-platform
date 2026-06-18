@@ -1,114 +1,244 @@
+  "use client";
+
+import { useState } from "react";
+
 export default function Navbar() {
+
+  const [open, setOpen] = useState(false);
+
+
+  const links = [
+    {
+      name: "HOME",
+      href: "#home",
+    },
+    {
+      name: "MENU",
+      href: "#menu",
+    },
+    {
+      name: "BANQUET",
+      href: "#banquet",
+    },
+    {
+      name: "GALLERY",
+      href: "#gallery",
+    },
+    {
+      name: "CONTACT",
+      href: "#contact",
+    },
+  ];
+
+
   return (
+
     <nav
       className="
-      fixed
-      top-0
-      left-0
-      z-50
+        fixed
+        top-0
+        left-0
 
-      w-full
-      h-32
+        w-full
 
-      bg-black/50
-      backdrop-blur-xl
+        z-50
 
-      flex
-      items-center
-      justify-between
+        bg-black/80
+        backdrop-blur-xl
 
-      px-20
+        border-b
+        border-yellow-400/30
+
+        overflow-hidden
       "
     >
 
-      {/* LOGO */}
-      <h1
-        className="
-        text-yellow-400
-        text-7xl
-        font-black
-        tracking-widest
-        "
-      >
-        TVK
-      </h1>
 
-
-
-      {/* LINKS */}
       <div
         className="
-        flex
-        gap-20
+          w-full
+
+          flex
+          items-center
+          justify-between
+
+          px-5
+          md:px-20
+
+          py-5
         "
       >
 
-        {[
-          "HOME",
-          "MENU",
-          "BANQUET",
-          "GALLERY",
-          "CONTACT",
-        ].map((item) => (
 
-          <a
-            key={item}
-            href={`#${item.toLowerCase()}`}
 
-            className="
-            text-white
+        {/* LOGO */}
+        <a
+          href="#home"
+
+          className="
+            text-yellow-400
+
+            text-3xl
+            md:text-5xl
+
+            font-black
+
+            tracking-[4px]
+
+            whitespace-nowrap
+          "
+        >
+
+          TVK
+
+        </a>
+
+
+
+
+
+        {/* DESKTOP MENU */}
+        <div
+          className="
+            hidden
+            md:flex
+
+            items-center
+
+            gap-16
+          "
+        >
+
+          {
+            links.map((item) => (
+
+              <a
+
+                key={item.name}
+
+                href={item.href}
+
+                className="
+                  text-white
+
+                  text-xl
+
+                  tracking-[8px]
+
+                  font-bold
+
+                  hover:text-yellow-400
+
+                  transition
+                "
+              >
+
+                {item.name}
+
+              </a>
+
+            ))
+          }
+
+        </div>
+
+
+
+
+
+
+        {/* MOBILE BUTTON */}
+        <button
+
+          onClick={() => setOpen(!open)}
+
+          className="
+            md:hidden
+
+            text-yellow-400
 
             text-4xl
 
             font-black
+          "
+        >
 
-            tracking-[5px]
+          ☰
 
-            hover:text-yellow-400
+        </button>
 
-            duration-300
-            "
-          >
 
-            {item}
-
-          </a>
-
-        ))}
 
       </div>
 
 
 
 
-      {/* BUTTON */}
-      <a
-        href="#contact"
 
-        className="
-        bg-yellow-400
+      {/* MOBILE MENU */}
+      {
+        open && (
 
-        text-black
+          <div
+            className="
+              md:hidden
 
-        px-16
-        py-6
+              flex
+              flex-col
 
-        rounded-full
+              items-center
 
-        text-3xl
+              gap-6
 
-        font-black
+              py-8
 
-        hover:scale-110
-        duration-300
-        "
-      >
+              bg-black
 
-        Reserve Now
+              border-t
+              border-yellow-400/30
+            "
+          >
 
-      </a>
+            {
+              links.map((item) => (
+
+                <a
+
+                  key={item.name}
+
+                  href={item.href}
+
+                  onClick={() => setOpen(false)}
+
+                  className="
+                    text-white
+
+                    text-xl
+
+                    tracking-[5px]
+
+                    font-bold
+
+                    hover:text-yellow-400
+                  "
+                >
+
+                  {item.name}
+
+                </a>
+
+
+              ))
+            }
+
+
+          </div>
+
+        )
+      }
 
 
     </nav>
+
   );
 }

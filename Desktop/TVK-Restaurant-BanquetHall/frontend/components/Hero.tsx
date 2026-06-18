@@ -1,53 +1,51 @@
 export default function Hero() {
   return (
-    <>
-
-      {/* HERO SECTION */}
-      <section
-        id="home"
-        className="
+    <section
+      id="home"
+      className="
         relative
         min-h-screen
+        w-full
 
         bg-cover
         bg-center
 
         flex
         items-center
+        justify-center
+
+        px-4
+        md:px-20
 
         overflow-hidden
-        "
-        style={{
-          backgroundImage:
-            "url('/images/gallery/home.jpg')",
-        }}
-      >
+      "
+      style={{
+        backgroundImage: "url('/images/gallery/home.jpg')",
+      }}
+    >
 
-
-        {/* DARK EFFECT */}
-        <div
-          className="
+      {/* DARK OVERLAY */}
+      <div
+        className="
           absolute
           inset-0
-
           bg-gradient-to-r
           from-black
-          via-black/60
-          to-black/20
-          "
-        />
+          via-black/70
+          to-black/30
+        "
+      />
 
 
 
-        {/* TEXT BOX */}
-        <div
-          className="
+      {/* CONTENT BOX */}
+      <div
+        className="
           relative
           z-10
 
-          ml-20
-
-          w-[850px]
+          w-full
+          max-w-[850px]
 
           bg-black/60
           backdrop-blur-xl
@@ -57,209 +55,226 @@ export default function Hero() {
 
           rounded-2xl
 
-          p-14
+          p-6
+          sm:p-8
+          md:p-14
 
-          shadow-[0_0_60px_rgba(250,204,21,0.5)]
+          shadow-[0_0_60px_rgba(250,204,21,0.4)]
 
           transition-all
           duration-700
 
-          hover:scale-105
-          "
-        >
+          md:hover:scale-105
+        "
+      >
 
 
-          {/* SMALL TITLE */}
-          <p
-            className="
+        {/* SMALL TITLE */}
+        <p
+          className="
             text-yellow-400
 
-            tracking-[12px]
+            tracking-[5px]
+            md:tracking-[12px]
 
-            text-xl
+            text-sm
+            md:text-xl
 
             font-black
 
-            mb-8
-            "
-          >
+            mb-5
+            md:mb-8
 
-            PREMIUM LUXURY EXPERIENCE
+            text-center
+            md:text-left
+          "
+        >
+          PREMIUM LUXURY EXPERIENCE
+        </p>
 
-          </p>
 
 
 
-
-
-          {/* MAIN TITLE */}
-          <h1
-            className="
+        {/* MAIN HEADING */}
+        <h1
+          className="
             text-white
 
-            text-7xl
+            text-4xl
+            sm:text-5xl
+            md:text-7xl
 
             font-black
 
             leading-tight
 
             tracking-wide
-            "
-          >
+
+            text-center
+            md:text-left
+          "
+        >
+
+          TVK
+
+          <br />
+
+          RESTAURANT
+
+          <br />
 
 
-            TVK
+          &{" "}
 
-            <br />
-
-
-            RESTAURANT
-
-            <br />
+          <span className="text-yellow-400">
+            BANQUET
+          </span>
 
 
-            &{" "}
+          <br />
 
-            <span
-              className="
-              text-yellow-400
-              "
-            >
+          HALL
 
-              BANQUET
-
-            </span>
-
-
-            <br />
-
-
-            HALL
-
-
-          </h1>
+        </h1>
 
 
 
 
-
-          {/* DESCRIPTION */}
-          <p
-            className="
-            mt-8
+        {/* DESCRIPTION */}
+        <p
+          className="
+            mt-6
+            md:mt-8
 
             text-white
 
-            text-2xl
+            text-base
+            md:text-2xl
 
             font-semibold
-            "
-          >
 
-            Fine Dining • Royal Weddings • Birthday Events
+            text-center
+            md:text-left
 
-            <br />
+            leading-relaxed
+          "
+        >
 
-            Corporate Celebrations • Premium Hospitality
+          Fine Dining • Royal Weddings • Birthday Events
 
-          </p>
+          <br className="hidden md:block" />
+
+          Corporate Celebrations • Premium Hospitality
+
+        </p>
 
 
 
 
 
-          {/* BUTTONS */}
-          <div
-            className="
+        {/* BUTTONS */}
+        <div
+          className="
             flex
-            gap-10
 
-            mt-12
-            "
-          >
+            flex-col
+            md:flex-row
+
+            gap-5
+            md:gap-10
+
+            mt-8
+            md:mt-12
+          "
+        >
 
 
+          <a
+            href="#contact"
 
-            <a
-              href="#contact"
-
-              className="
+            className="
               bg-yellow-400
 
               text-black
 
-              px-16
-              py-5
+              w-full
+              md:w-auto
+
+              text-center
+
+              px-8
+              md:px-16
+
+              py-4
+              md:py-5
 
               rounded-full
 
-              text-xl
+              text-lg
+              md:text-xl
 
               font-black
 
-              hover:scale-110
+              hover:scale-105
 
               transition
-              "
-            >
+            "
+          >
 
-              RESERVE NOW
+            RESERVE NOW
 
-            </a>
-
-
+          </a>
 
 
 
 
-            <a
-              href="#banquet"
+          <a
+            href="#banquet"
 
-              className="
+            className="
               border-2
-
               border-yellow-400
 
               text-white
 
-              px-16
+              w-full
+              md:w-auto
 
-              py-5
+              text-center
+
+              px-8
+              md:px-16
+
+              py-4
+              md:py-5
 
               rounded-full
 
-              text-xl
+              text-lg
+              md:text-xl
 
               font-black
 
-
               hover:bg-yellow-400
-
               hover:text-black
 
-              hover:scale-110
-
+              hover:scale-105
 
               transition
-              "
-            >
+            "
+          >
 
-              EXPLORE VENUE
+            EXPLORE VENUE
 
-            </a>
-
-
-
-          </div>
-
+          </a>
 
 
         </div>
 
 
-      </section>
+      </div>
 
 
-    </>
+    </section>
   );
 }
