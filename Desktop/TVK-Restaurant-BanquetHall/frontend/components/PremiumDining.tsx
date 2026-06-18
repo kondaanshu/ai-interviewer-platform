@@ -43,24 +43,24 @@ export default function PremiumDining() {
   return (
 
     <section
-      id="dining"
-      className="
-      relative
+  id="dining"
+  className="
+  bg-black
+  text-white
 
-      bg-black
-      text-white
+  w-full
+  overflow-hidden
 
-      w-full
-      overflow-hidden
+  px-5
+  md:px-20
 
-      px-5
-      md:px-20
+  pt-24
+  md:pt-40
 
-      py-24
-      md:py-40
-      "
-    >
-
+  pb-40
+  md:pb-60
+  "
+>
 
 
       {/* BACKGROUND EFFECT */}
