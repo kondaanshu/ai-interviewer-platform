@@ -1,11 +1,14 @@
  "use client";
 
+import { motion } from "framer-motion";
+
+
 export default function Banquet() {
 
 
-const bookBanquet = () => {
+  const bookBanquet = () => {
 
-const message = `
+    const message = `
 ✨ TVK BANQUET BOOKING
 
 Hello TVK,
@@ -18,20 +21,37 @@ Guests:
 Please share availability and details.
 `;
 
-window.open(
-`https://wa.me/919963999352?text=${encodeURIComponent(message)}`,
-"_blank"
-);
+    window.open(
+      `https://wa.me/919963999352?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
 
-};
+  };
 
 
 
-// EVENT CLICK BOOKING
 
-const eventBooking = (eventName:string)=>{
 
-const message = `
+  const eventBooking = (eventName: string) => {
+
+
+    // PREMIUM DINING CLICK
+    if (eventName === "Premium Dining") {
+
+      document
+        .getElementById("dining")
+        ?.scrollIntoView({
+          behavior: "smooth",
+        });
+
+      return;
+
+    }
+
+
+
+
+    const message = `
 ✨ TVK BANQUET RESERVATION
 
 Event:
@@ -44,506 +64,530 @@ Hello TVK,
 I want to reserve this event.
 `;
 
-window.open(
-`https://wa.me/919963999352?text=${encodeURIComponent(message)}`,
-"_blank"
-);
+    window.open(
+      `https://wa.me/919963999352?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
 
-};
-
-
-
-
-
-const events = [
-
-{
-icon:"💍",
-name:"Luxury Wedding"
-},
-
-{
-icon:"🎂",
-name:"Birthday Party"
-},
-
-{
-icon:"💐",
-name:"Engagement Ceremony"
-},
-
-{
-icon:"🏢",
-name:"Corporate Event"
-},
-
-{
-icon:"🍽️",
-name:"Premium Dining"
-},
-
-{
-icon:"🌸",
-name:"Royal Decoration"
-},
-
-];
+  };
 
 
 
 
 
 
-return (
+  const events = [
 
-<section
+    {
+      icon: "💍",
+      name: "Luxury Wedding",
+    },
 
-id="banquet"
+    {
+      icon: "🎂",
+      name: "Birthday Party",
+    },
 
-className="
-min-h-screen
-bg-black
-text-white
-overflow-hidden
-"
+    {
+      icon: "💐",
+      name: "Engagement Ceremony",
+    },
 
->
+    {
+      icon: "🏢",
+      name: "Corporate Event",
+    },
+
+    {
+      icon: "🍽️",
+      name: "Premium Dining",
+    },
+
+    {
+      icon: "🌸",
+      name: "Royal Decoration",
+    },
+
+  ];
 
 
 
-{/* HERO SECTION */}
 
 
-<div
 
-className="
-relative
 
-h-screen
+  return (
 
-bg-cover
+    <section
+      id="banquet"
 
-bg-center
+      className="
+      bg-black
+      text-white
 
-flex
+      w-full
 
-items-center
+      overflow-hidden
+      "
+    >
 
-px-20
 
-"
 
-style={{
 
-backgroundImage:
 
-"url('/images/banquet-hero.jpg')"
+      {/* HERO */}
+
+      <div
+        className="
+        relative
+
+        min-h-screen
+
+        bg-cover
+        bg-center
+
+        flex
+
+        items-center
+
+        px-5
+        md:px-20
+        "
+
+        style={{
+          backgroundImage:
+            "url('/images/banquet-hero.jpg')",
+        }}
+      >
+
+
+        <div
+          className="
+          absolute
+          inset-0
+          bg-black/70
+          "
+        />
+
+
+
+
+
+
+        <motion.div
+
+          initial={{
+            opacity: 0,
+            y: 80,
+          }}
+
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+
+          transition={{
+            duration: 0.8,
+          }}
+
+
+          className="
+          relative
+          z-10
+
+          w-full
+          "
+        >
+
+
+
+
+
+          <p
+            className="
+            text-yellow-400
+
+            text-sm
+            md:text-2xl
+
+            tracking-[5px]
+            md:tracking-[12px]
+
+            font-black
+
+            mb-6
+            "
+          >
+
+            ROYAL CELEBRATIONS
+
+          </p>
+
+
+
+
+
+
+          <h1
+            className="
+            text-5xl
+            md:text-8xl
+
+            font-black
+
+            leading-tight
+            "
+          >
+
+            TVK Luxury
+
+            <br />
+
+            Banquet Hall
+
+          </h1>
+
+
+
+
+
+
+          <p
+            className="
+            text-lg
+            md:text-3xl
+
+            mt-8
+
+            text-gray-200
+            "
+          >
+
+            Weddings • Birthdays • Corporate Events
+
+          </p>
+
+
+
+
+
+
+
+
+          <button
+
+            onClick={bookBanquet}
+
+            className="
+            mt-10
+
+            bg-yellow-400
+
+            text-black
+
+            px-8
+            md:px-16
+
+            py-4
+            md:py-5
+
+            rounded-full
+
+            text-lg
+            md:text-2xl
+
+            font-black
+
+            hover:scale-105
+
+            transition
+
+            shadow-xl
+            shadow-yellow-500/40
+            "
+          >
+
+            BOOK BANQUET NOW
+
+          </button>
+
+
+
+        </motion.div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+      {/* EVENTS */}
+
+      <div
+        className="
+        px-5
+        md:px-20
+
+        py-24
+        "
+      >
+
+
+
+
+
+        <h2
+          className="
+          text-center
+
+          text-4xl
+          md:text-7xl
+
+          font-black
+
+          mb-16
+
+          bg-gradient-to-r
+          from-yellow-200
+          via-yellow-500
+          to-orange-500
+
+          text-transparent
+          bg-clip-text
+          "
+        >
+
+          OUR PREMIUM EVENTS
+
+        </h2>
+
+
+
+
+
+
+
+        <div
+          className="
+          grid
+
+          grid-cols-1
+          md:grid-cols-3
+
+          gap-8
+          "
+        >
+
+
+          {
+
+
+            events.map((item, index) => (
+
+
+              <motion.div
+
+                key={index}
+
+                onClick={() => {
+
+  if (item.name === "Premium Dining") {
+
+    document
+      .getElementById("dining")
+      ?.scrollIntoView({
+        behavior:"smooth"
+      });
+
+  } else {
+
+    eventBooking(item.name);
+
+  }
 
 }}
 
->
+                initial={{
+                  opacity: 0,
+                  y: 60,
+                }}
 
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
 
-{/* OVERLAY */}
 
+                transition={{
+                  delay: index * 0.1,
+                }}
 
-<div
 
-className="
-absolute
-inset-0
-bg-black/60
-"
 
-/>
+                whileHover={{
+                  scale: 1.05,
+                  y: -10,
+                }}
 
 
 
+                className="
+                h-48
 
+                rounded-[35px]
 
-{/* TEXT */}
+                border
+                border-yellow-500/40
 
-<div
+                bg-white/10
 
-className="
-relative
+                backdrop-blur-xl
 
-z-10
+                flex
 
-animate-pulse
+                items-center
+                justify-center
 
-"
+                text-xl
+                md:text-3xl
 
->
+                font-bold
 
+                cursor-pointer
 
+                hover:bg-yellow-400
+                hover:text-black
 
-<p
+                transition
 
-className="
-text-yellow-400
+                shadow-xl
+                shadow-yellow-500/20
+                "
+              >
 
-text-2xl
 
-tracking-[12px]
+                {item.icon}
+                &nbsp;
+                {item.name}
 
-font-black
 
-mb-8
-"
+              </motion.div>
 
->
 
-ROYAL CELEBRATIONS
+            ))
 
-</p>
 
+          }
 
 
+        </div>
 
-<h1
 
-className="
-text-8xl
+      </div>
 
-font-black
 
-leading-tight
 
-drop-shadow-2xl
-"
 
->
 
-TVK Luxury
 
-<br/>
 
-Banquet Hall
 
 
-</h1>
+      {/* CAPACITY */}
 
 
+      <motion.div
 
+        initial={{
+          opacity: 0,
+          scale: 0.8,
+        }}
 
-<p
+        whileInView={{
+          opacity: 1,
+          scale: 1,
+        }}
 
-className="
-text-3xl
+        className="
+        text-center
 
-mt-8
+        py-24
 
-text-gray-200
-"
+        px-5
+        "
+      >
 
->
 
-Weddings • Birthdays • Corporate Events
 
-</p>
 
+        <h1
+          className="
+          text-7xl
+          md:text-9xl
 
+          font-black
 
+          text-yellow-400
+          "
+        >
 
+          250
 
+        </h1>
 
-<button
 
-onClick={bookBanquet}
 
-className="
-mt-12
 
-bg-yellow-400
 
-text-black
+        <p
+          className="
+          text-3xl
+          md:text-5xl
 
-px-16
+          font-bold
 
-py-5
+          mt-8
+          "
+        >
 
-rounded-full
+          Guests Premium Banquet Capacity
 
-text-2xl
+        </p>
 
-font-black
 
-hover:scale-110
 
-transition-all
 
-duration-500
 
-shadow-2xl
+        <p
+          className="
+          text-lg
+          md:text-2xl
 
-shadow-yellow-500/50
-"
+          text-gray-400
 
->
+          mt-5
+          "
+        >
 
-BOOK BANQUET NOW
+          Premium ambience • Royal service • Luxury celebrations
 
+        </p>
 
-</button>
 
 
+      </motion.div>
 
-</div>
 
 
-</div>
 
 
+    </section>
 
-
-
-
-
-
-
-{/* EVENTS SECTION */}
-
-
-
-<div
-
-className="
-px-20
-
-py-28
-
-"
-
->
-
-
-
-<h2
-
-className="
-text-center
-
-text-7xl
-
-font-black
-
-tracking-[8px]
-
-bg-gradient-to-r
-
-from-yellow-200
-
-via-yellow-500
-
-to-orange-500
-
-text-transparent
-
-bg-clip-text
-
-mb-20
-"
-
->
-
-OUR PREMIUM EVENTS
-
-</h2>
-
-
-
-
-
-<div
-
-className="
-grid
-
-md:grid-cols-3
-
-gap-10
-"
-
->
-
-
-{
-
-
-events.map((item,index)=>(
-
-
-<div
-
-key={index}
-
-onClick={()=>eventBooking(item.name)}
-
-
-className="
-
-h-52
-
-rounded-[40px]
-
-border
-
-border-yellow-500/40
-
-
-bg-white/10
-
-backdrop-blur-xl
-
-
-flex
-
-items-center
-
-justify-center
-
-
-text-3xl
-
-font-bold
-
-
-cursor-pointer
-
-
-hover:scale-110
-
-hover:-translate-y-4
-
-
-hover:bg-yellow-400
-
-hover:text-black
-
-
-transition-all
-
-duration-500
-
-
-shadow-xl
-
-shadow-yellow-500/20
-
-"
-
-
->
-
-
-{item.icon} &nbsp; {item.name}
-
-
-</div>
-
-
-
-))
-
-
-}
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* CAPACITY SECTION */}
-
-
-<div
-
-className="
-text-center
-
-py-28
-"
-
->
-
-
-<h1
-
-className="
-text-9xl
-
-font-black
-
-text-yellow-400
-
-animate-bounce
-"
-
->
-
-500+
-
-</h1>
-
-
-
-
-<p
-
-className="
-text-5xl
-
-font-bold
-
-mt-8
-"
-
->
-
-Guests Luxury Capacity Hall
-
-</p>
-
-
-
-<p
-
-className="
-text-2xl
-
-text-gray-400
-
-mt-5
-"
-
->
-
-Premium ambience • Royal service • Luxury celebrations
-
-</p>
-
-
-
-
-</div>
-
-
-
-
-</section>
-
-
-);
+  );
 
 }
