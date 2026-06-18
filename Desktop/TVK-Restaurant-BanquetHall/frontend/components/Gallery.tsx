@@ -87,25 +87,24 @@ export default function Gallery() {
   return (
 
     <section
-      id="gallery"
-      className="
-      bg-black
+  id="gallery"
+  className="
+  bg-black
+  min-h-screen
+  text-white
 
-      min-h-screen
+  px-5
+  md:px-20
 
-      text-white
+  pt-40
+  md:pt-60
 
-      w-full
+  pb-24
+  md:pb-40
 
-      overflow-hidden
-
-      px-4
-      md:px-20
-
-      py-24
-      md:py-40
-      "
-    >
+  overflow-hidden
+  "
+  >
 
 
 
