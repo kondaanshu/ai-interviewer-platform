@@ -5,366 +5,402 @@ import { useState } from "react";
 
 
 type Item = {
-  title:string;
-  type:string;
-  img:string;
+  title: string;
+  type: string;
+  img: string;
 };
 
 
-export default function Gallery(){
+export default function Gallery() {
 
 
-const [active,setActive]=useState("All");
+  const [active, setActive] = useState("All");
 
 
-const images:Item[]=[
+  const images: Item[] = [
 
-{
-title:"Luxury Restaurant",
-type:"Restaurant",
-img:"/images/gallery/restaurant-1.jpg"
-},
+    {
+      title: "Luxury Restaurant",
+      type: "Restaurant",
+      img: "/images/gallery/restaurant-1.jpg",
+    },
 
-{
-title:"Fine Dining Experience",
-type:"Restaurant",
-img:"/images/gallery/restaurant-2.jpg"
-},
+    {
+      title: "Fine Dining Experience",
+      type: "Restaurant",
+      img: "/images/gallery/restaurant-2.jpg",
+    },
 
-{
-title:"Royal Banquet Hall",
-type:"Banquet",
-img:"/images/gallery/banquet-1.jpg"
-},
+    {
+      title: "Royal Banquet Hall",
+      type: "Banquet",
+      img: "/images/gallery/banquet-1.jpg",
+    },
 
-{
-title:"Wedding Hall",
-type:"Banquet",
-img:"/images/gallery/banquet-2.jpg"
-},
+    {
+      title: "Wedding Hall",
+      type: "Banquet",
+      img: "/images/gallery/banquet-2.jpg",
+    },
 
-{
-title:"Grand Celebration",
-type:"Banquet",
-img:"/images/gallery/banquet-3.jpg"
-},
+    {
+      title: "Grand Celebration",
+      type: "Banquet",
+      img: "/images/gallery/banquet-3.jpg",
+    },
 
-{
-title:"Chef Cooking",
-type:"Kitchen",
-img:"/images/gallery/chef-cooking.jpg"
-},
+    {
+      title: "Chef Cooking",
+      type: "Kitchen",
+      img: "/images/gallery/chef-cooking.jpg",
+    },
 
-{
-title:"Modern Kitchen",
-type:"Kitchen",
-img:"/images/gallery/kitchen.jpg"
-},
+    {
+      title: "Modern Kitchen",
+      type: "Kitchen",
+      img: "/images/gallery/kitchen.jpg",
+    },
 
-{
-title:"Birthday Event",
-type:"Events",
-img:"/images/gallery/birthday-event.jpg"
-},
+    {
+      title: "Birthday Event",
+      type: "Events",
+      img: "/images/gallery/birthday-event.jpg",
+    },
 
-{
-title:"Royal Buffet",
-type:"Events",
-img:"/images/gallery/buffet.jpg"
-},
+    {
+      title: "Royal Buffet",
+      type: "Events",
+      img: "/images/gallery/buffet.jpg",
+    },
 
-];
+  ];
 
 
-const filtered =
-active==="All"
-?
-images
-:
-images.filter(i=>i.type===active);
 
+  const filtered =
+    active === "All"
+      ? images
+      : images.filter((i) => i.type === active);
 
 
-return(
 
-<section
-id="gallery"
-className="
-bg-black
-min-h-screen
-text-white
-px-20
-py-40
-"
->
-    
-{/* TITLE */}
+  return (
 
+    <section
+      id="gallery"
+      className="
+      bg-black
 
-<h1
-className="
-text-center
+      min-h-screen
 
-text-[110px]
+      text-white
 
-font-black
+      w-full
 
-mb-8
+      overflow-hidden
 
-bg-gradient-to-r
-from-yellow-200
-via-yellow-500
-to-orange-500
+      px-4
+      md:px-20
 
-text-transparent
-bg-clip-text
-"
->
+      py-24
+      md:py-40
+      "
+    >
 
-TVK GALLERY
 
-</h1>
 
+      {/* TITLE */}
 
+      <h1
+        className="
+        text-center
 
-<p
-className="
-text-center
-text-4xl
-text-gray-300
-mb-24
-"
->
+        text-5xl
+        md:text-[110px]
 
-Luxury Restaurant & Banquet Experience
+        leading-tight
 
-</p>
+        font-black
 
+        mb-5
+        md:mb-8
 
+        bg-gradient-to-r
+        from-yellow-200
+        via-yellow-500
+        to-orange-500
 
+        text-transparent
+        bg-clip-text
+        "
+      >
 
+        TVK GALLERY
 
-{/* BUTTONS */}
+      </h1>
 
-<div
-className="
-flex
-justify-center
-gap-10
-mb-24
-"
->
 
 
-{
-[
-"All",
-"Restaurant",
-"Banquet",
-"Kitchen",
-"Events"
 
-].map(cat=>(
 
-<button
+      <p
+        className="
+        text-center
 
-onClick={()=>setActive(cat)}
+        text-lg
+        md:text-4xl
 
-key={cat}
+        text-gray-300
 
+        mb-14
+        md:mb-24
+        "
+      >
 
-className={`
+        Luxury Restaurant & Banquet Experience
 
-text-3xl
+      </p>
 
-px-14
-py-5
 
-rounded-full
 
-font-bold
 
-${
 
-active===cat
 
-?
 
-"bg-yellow-400 text-black"
+      {/* FILTER BUTTONS */}
 
-:
+      <div
+        className="
+        flex
 
-"bg-white/10"
+        flex-wrap
 
-}
+        justify-center
 
+        gap-4
+        md:gap-10
 
-`}
+        mb-14
+        md:mb-24
+        "
+      >
 
->
 
-{cat}
+        {
+          [
+            "All",
+            "Restaurant",
+            "Banquet",
+            "Kitchen",
+            "Events"
 
-</button>
+          ].map((cat) => (
 
-))
+            <button
 
-}
+              key={cat}
 
+              onClick={() => setActive(cat)}
 
-</div>
+              className={`
 
+              text-sm
+              md:text-3xl
 
+              px-5
+              md:px-14
 
+              py-3
+              md:py-5
 
+              rounded-full
 
+              font-bold
 
-{/* GALLERY */}
+              transition
 
 
-<div
-className="
-space-y-24
-"
->
+              ${
 
+                active === cat
 
-{
+                  ?
 
-filtered.map((item,index)=>(
+                  "bg-yellow-400 text-black"
 
+                  :
 
-<div
+                  "bg-white/10 text-white"
 
-key={index}
+                }
 
+              `}
 
-className="
-relative
+            >
 
-w-full
+              {cat}
 
-h-[750px]
+            </button>
 
-rounded-[60px]
 
-overflow-hidden
+          ))
+        }
 
-border
 
-border-yellow-500/40
+      </div>
 
-shadow-2xl
 
-shadow-yellow-500/30
 
-group
 
-"
 
 
->
 
 
+      {/* IMAGES */}
 
-<Image
+      <div
+        className="
+        space-y-10
+        md:space-y-24
+        "
+      >
 
-src={item.img}
 
-alt={item.title}
+        {
 
-fill
+          filtered.map((item, index) => (
 
 
-className="
-object-contain
+            <div
 
-bg-black
+              key={index}
 
-group-hover:scale-105
 
-duration-700
+              className="
+              relative
 
-"
+              w-full
 
+              h-[350px]
+              md:h-[750px]
 
-/>
+              rounded-3xl
+              md:rounded-[60px]
 
+              overflow-hidden
 
+              border
+              border-yellow-500/40
 
-<div
-className="
-absolute
+              shadow-xl
+              shadow-yellow-500/20
 
-bottom-0
+              group
+              "
 
-w-full
+            >
 
-p-20
 
-bg-gradient-to-t
 
-from-black
+              <Image
 
-to-transparent
-"
->
+                src={item.img}
 
+                alt={item.title}
 
-<p
-className="
-text-yellow-400
+                fill
 
-text-4xl
+                className="
+                object-cover
 
-font-black
+                group-hover:scale-105
 
-tracking-[10px]
-"
->
+                duration-700
+                "
 
-{item.type}
+              />
 
-</p>
 
 
 
-<h2
 
-className="
-text-8xl
+              <div
+                className="
+                absolute
 
-font-black
+                bottom-0
 
-mt-5
-"
+                w-full
 
->
+                p-5
+                md:p-20
 
-{item.title}
+                bg-gradient-to-t
+                from-black
+                to-transparent
+                "
+              >
 
-</h2>
 
 
+                <p
+                  className="
+                  text-yellow-400
 
-</div>
+                  text-sm
+                  md:text-4xl
 
+                  font-black
 
+                  tracking-[5px]
+                  md:tracking-[10px]
+                  "
+                >
 
-</div>
+                  {item.type}
 
+                </p>
 
-))
 
-}
 
 
-</div>
+                <h2
+                  className="
+                  text-3xl
+                  md:text-8xl
 
+                  font-black
 
+                  mt-3
+                  md:mt-5
 
-</section>
+                  leading-tight
+                  "
+                >
 
-)
+                  {item.title}
+
+                </h2>
+
+
+
+
+              </div>
+
+
+            </div>
+
+
+          ))
+
+        }
+
+
+      </div>
+
+
+    </section>
+
+  );
 
 }
